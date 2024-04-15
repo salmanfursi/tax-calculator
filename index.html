@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for error icons */
+    .error-icon {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container col-sm-6 mt-5 border border-primary p-4 rounded fw-medium">
+     <form id="taxForm">
+      <div class="mb-3">
+        <label for="income" class="form-label">Gross Annual Income (in Lakhs)</label>
+        <input type="number" class="form-control" id="income">
+        <div class="error-icon" id="incomeError">!</div>
+      </div>
+      <div class="mb-3">
+        <label for="extraIncome" class="form-label">Extra Income (in Lakhs)</label>
+        <input type="number" class="form-control" id="extraIncome">
+        <div class="error-icon" id="extraIncomeError">!</div>
+      </div>
+      <div class="mb-3">
+        <label for="deductions" class="form-label">Total Applicable Deductions (in Lakhs)</label>
+        <input type="number" class="form-control" id="deductions">
+        <div class="error-icon" id="deductionsError">!</div>
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <select class="form-select" id="age">
+          <option value="" selected disabled>Select Age Group</option>
+          <option value="under40">&lt; 40</option>
+          <option value="40to60">&ge; 40 &lt; 60</option>
+          <option value="over60">&ge; 60</option>
+        </select>
+        <div class="error-icon" id="ageError">!</div>
+      </div>
+      <button type="submit" class=" container btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
+  <!-- Bootstrap JavaScript (optional, for modal) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="taxModal" tabindex="-1" aria-labelledby="taxModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content container p-5">
+        <div class="">
+          <h5 id="taxModalLabel"> </h5>
+        </div>
+        <h4 class="d-flex justify-content-center">Your overall income will be</h4>
+        <div class="modal-body d-flex justify-content-center" id="modalBody">
+          <!-- The tax amount will be displayed here -->
+        </div>
+        <h6 class="d-flex justify-content-center">After tax deduction</h6>
+        <div class="d-flex justify-content-center pt-3">
+          <button type="button" class="text-center btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
